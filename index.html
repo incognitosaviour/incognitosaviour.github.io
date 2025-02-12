@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Input with Submit Button</title>
+    <style>
+        /* Full page height */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Center the text box and button vertically */
+        .container {
+            text-align: center;
+        }
+
+        /* Style the input box */
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Placeholder text style */
+        input::placeholder {
+            color: #888;
+        }
+
+        /* Focus style */
+        input:focus {
+            border-color: #4A90E2;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+        }
+
+        /* Style the submit button */
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4A90E2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #357ABD;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Password input field -->
+        <input type="text" placeholder="Enter your password here" id="passwordBox">
+        
+        <!-- Submit button -->
+        <button onclick="submitPassword()">Submit</button>
+    </div>
+
+    <script>
+        // Get the input field and the submit button
+        const passwordBox = document.getElementById('passwordBox');
+
+        // Event listener to remove placeholder text when clicked
+        passwordBox.addEventListener('click', function() {
+            if (passwordBox.value === "Enter your password here") {
+                passwordBox.value = "";
+            }
+        });
+
+        // Optional: Restore the placeholder if it's empty after blur (focus lost)
+        passwordBox.addEventListener('blur', function() {
+            if (passwordBox.value === "") {
+                passwordBox.value = "Enter your password here";
+            }
+        });
+
+        // Function to handle password submission
+        function submitPassword() {
+            const enteredPassword = passwordBox.value;
+            // You can modify the condition based on your requirements
+            if (enteredPassword === "correctPassword") {
+                alert("Password correct! Redirecting...");
+                // Example redirection (replace with your actual link)
+                window.location.href = "https://drive.google.com/drive/folders/your-folder-id";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
